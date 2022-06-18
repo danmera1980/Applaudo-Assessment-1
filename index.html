@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Week 1 - Todo List</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <div class="logo">Week 1</div>
+        <nav>
+            <a class="active" title="Task List"><i class="fa fa-list-ol"></i></a>
+            <a href="calculator.html" title="Bonus Calculator"><i class="fa fa-calculator"></i></a>
+        </nav>
+    </header>
+    <main>
+        <section class="form">
+            <h1>New Task</h1>
+            <form>
+                <div class="input-box">
+                    <label class="form-label" for="id">Name</label>
+                    <input type="text" name="id" id="id" placeholder="ID" readonly>
+                </div>
+                <div class="input-box">
+                    <label class="form-label" for="task">Name</label>
+                    <input type="text" name="task" id="task" placeholder="Task" maxlength="100" required>
+                </div>
+                <div class="input-options">
+                    <div>
+                        <label class="form-label" for="assignee">Assignee: </label>
+                        <select id="assignee" name="assignee">
+                            <option value="Frank">Frank</option>
+                            <option value="John">John</option>
+                            <option value="Alice">Alice</option>
+                            <option value="Mary">Mary</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label" for="status">Status: </label>
+                        <input id="status" class="switch" type="checkbox" name="status">
+                    </div>
+                </div>
+                <div>
+                    <button id="addTask" type="submit">Create Task</button>
+                </div>
+            </form>
+        </section>
+        <section id="taskTable" class="task-table">
+            <div class="topbar">
+                <div class="search">
+                    <input type="text" id="search" placeholder="Find by Name">
+                    <i class="fa fa-search"></i>
+                </div>
+                <div class="filter">
+                    <label for="filter">Filter by Status: </label>
+                    <select name="filter" id="filter">
+                        <option value="all">All</option>
+                        <option value="true">Done</option>
+                        <option value="false">Pending</option>
+                    </select>
+                </div>
+            </div>
+            <table>
+                <thead id="thead">
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>ASSIGNEE</th>
+                    <th>STATUS</th>
+                    <th>CREATION DATE <i class="fa fa-sort"></i></th>
+                    <th>ACTIONS</th>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer> Created by - Daniel Mera - 2022</footer>
+</body>
+<script src="scripts/todo.js"></script>
+</html>

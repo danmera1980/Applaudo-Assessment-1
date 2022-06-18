@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Week 1 - Bonus Calculator</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <div class="logo">Week 1</div>
+        <nav>
+            <a href="/"  title="Task List"><i class="fa fa-list-ol"></i></a>
+            <a class="active"  title="Bonus Calculator"><i class="fa fa-calculator"></i></a>
+        </nav>
+    </header>
+    <main>
+        <section class="form">
+            <form>
+                <div>
+                    <label for="salary">Salary:</label>
+                    <input id="salary" type="number" name="salary" min="1" required>
+                </div>
+                <div>
+                    <label for="years">Years:</label>
+                    <input id="years" type="number" name="years" min="0" max="35" required>
+                </div>
+                <div>
+                    <label for="days">Days:</label>
+                    <input id="days" type="number" name="days" min="1" max="364" required>
+                </div>
+                <button id="calculate" type="submit">Calculate</button>
+            </form>
+        </section>
+        <section>
+            <h3>Bonus: <span id="bonus">$30</span></h3>
+        </section>
+    </main>
+    <footer>Created by - Daniel Mera - 2022</footer>
+</body>
+<script src="scripts/calculator.js"></script>
+</html>
