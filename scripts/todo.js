@@ -20,12 +20,12 @@ function refreshTable (tasks){
     tasks.map(task => {
         let row = document.createElement('tr');
         row.innerHTML=`
-                <td>${task.id}</td>
-                <td>${task.task}</td>
-                <td>${task.assignee}</td>
-                <td>${task.status?'Done':'Pending'}</td>
-                <td>${task.created}</td>
-                <td>
+                <td data-id='${task.id}'>${task.id}</td>
+                <td data-type='task' data-id='${task.id}' title="Double click to Edit">${task.task}</td>
+                <td data-id='${task.id}'>${task.assignee}</td>
+                <td data-id='${task.id}'>${task.status?'Done':'Pending'}</td>
+                <td data-id='${task.id}'>${task.created}</td>
+                <td data-id='${task.id}'>
                     ${task.status?'':
                     `<a href="#" class="check-item" title="Check Task as Done">
                         <i class="fa fa-check" data-id=${task.id}></i>
@@ -65,7 +65,7 @@ function saveTask(e){
     setTimeout(() => {
         // enable add task button
         addTask.disabled = false;
-    }, 3000);
+    }, 1000);
 }
 
 function deleteTask(e){
@@ -124,12 +124,34 @@ function sortColumn(e) {
         e.target.classList.remove('fa-sort-down');
         e.target.classList.add('fa-sort-up');
     }
-    console.log(tasks);
     refreshTable(tasks);
+}
+
+function editTask(e){
+    e.preventDefault();
+    console.log(e.target);
+    if(e.target.dataset.type === 'task'){
+        let editTask = e.target.dataset.id;
+        let editedTaskInput=`<input type="text" value="${e.target.innerText}">`
+        e.target.innerHTML = editedTaskInput;
+        taskIndex=tasks.findIndex(task => task.id == editTask);
+        console.log(editedTaskInput);
+        // save edited task
+        e.target.addEventListener('keyup', (e) => {
+            if(e.keyCode === 13){
+                console.log(e.target.value);
+                tasks[taskIndex].task = e.target.value;
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+                refreshTable(tasks);
+            }
+        });
+    }
 }
 
 addTask.addEventListener('click',saveTask);
 tbody.addEventListener('click', deleteTask);
+tbody.addEventListener('dblclick', editTask);
 thead.addEventListener('click', sortColumn);
 search.addEventListener('keyup', searchName);
 filter.addEventListener('change', filterStatus);
+

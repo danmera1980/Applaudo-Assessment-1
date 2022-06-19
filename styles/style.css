@@ -1,4 +1,5 @@
 :root {
+    --third-color: #7ee99e;
     --secondary-color: #0ab534;
     --primary-font-color: black;
     --secondary-font-color: white;
@@ -239,6 +240,10 @@ table {
 
  .task-table tbody{
     font-size: 18px;
+ }
+
+ .task-table tbody tr:hover{
+    background-color: var(--third-color);
  }
 
  .task-table tr:nth-child(even){
