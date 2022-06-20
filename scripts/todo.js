@@ -15,6 +15,14 @@ let checkTask;
 
 id.value = tasks.length? parseInt(tasks[tasks.length-1].id) + 1: 1;
 
+function countCharactes(e){
+    e.preventDefault();
+    let count = task.value.length;
+    let countSpan = document.querySelector('#counter');
+    console.log(count);
+    countSpan.innerHTML = count;
+}
+
 function refreshTable (tasks){
     tbody.innerHTML = '';
     tasks.map(task => {
@@ -45,6 +53,7 @@ function saveTask(e){
     addTask.disabled = true;
     if(task.value === '' ){
         alert('Please enter a task');
+        task.focus();
     } else {
         let newTask = {
             id: id.value,
@@ -148,6 +157,7 @@ function editTask(e){
     }
 }
 
+task.addEventListener('keyup', countCharactes);
 addTask.addEventListener('click',saveTask);
 tbody.addEventListener('click', deleteTask);
 tbody.addEventListener('dblclick', editTask);

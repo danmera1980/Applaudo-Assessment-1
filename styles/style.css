@@ -24,12 +24,13 @@ body {
     -o-background-size: cover;
     -moz-background-size: cover;
     -ms-background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
+    width: vw;
     font-family: 'Roboto', sans-serif;
 }
 
-header, main, footer {
+header, main {
     margin: 0 auto;
     max-width: 900px;
     padding: 0 15px;
@@ -78,6 +79,7 @@ main{
     flex-direction: column;
     align-items: center;
     gap: 40px;
+    padding-bottom: 5rem;
 }
 
 .topbar{
@@ -120,6 +122,15 @@ input {
     color: var(--primary-font-color);
     border-bottom: 1px solid var(--primary-font-color);
     margin-bottom: 20px;
+}
+
+.name-counter{
+    display: flex;
+}
+
+#counter{
+    color: var(--secondary-color);
+    font-size: 10px;
 }
 
 .input-options{
@@ -254,10 +265,10 @@ table {
  @media (max-width: 600px){
     .task-table{
         padding: 10px;
+        max-width: 90%;
     }
     .task-table table{
         display: block;
-        width: 100%;
     }
     .task-table:before{
         content: "Scroll horizontally to see the table";
@@ -343,8 +354,11 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80px;
+    height: 2.5rem;
     background-color: var(--secondary-color);
     color: var(--secondary-font-color);
     font-weight: 500;
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
  }
